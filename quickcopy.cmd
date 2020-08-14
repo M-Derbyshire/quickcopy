@@ -25,7 +25,11 @@ CALL %~dp0/batch_files/display_help.bat
 GOTO:eof
 
 :setChosenPath
-IF NOT "%2"=="" CALL %~dp0/batch_files/set_chosen_file_path.bat %2
+IF NOT "%2"=="" (
+	CALL %~dp0/batch_files/set_chosen_file_path.bat %2
+) ELSE (
+	ECHO Please provide a filename
+)
 GOTO:eof
 
 :clearChosenPath
