@@ -1,7 +1,7 @@
 @ECHO OFF
 REM Route the request to the correct batch file in ./batch_files
 
-IF "%1"=="" GOTO displayHelp
+IF "%1"=="" GOTO displayChosenPath
 
 
 IF /I "%1"=="/h" GOTO displayHelp 
@@ -11,6 +11,10 @@ IF /I "%1"=="/?" GOTO displayHelp
 IF /I "%1"=="/s" GOTO setChosenPath
 IF /I "%1"=="--set" GOTO setChosenPath
 
+GOTO:eof
+
+:displayChosenPath
+CALL %~dp0/batch_files/display_chosen_file_path.bat
 GOTO:eof
 
 :displayHelp
