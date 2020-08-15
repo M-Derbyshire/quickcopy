@@ -1,5 +1,3 @@
-@ECHO OFF
-
 ECHO QuickCopy
 ECHO ---------
 ECHO A simpler way to copy and move files with your Windows command line.
