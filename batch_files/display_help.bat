@@ -1,3 +1,5 @@
+REM Doesn't take any arguments
+
 ECHO(
 ECHO QuickCopy
 ECHO ---------
