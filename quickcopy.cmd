@@ -1,8 +1,10 @@
 @ECHO OFF
 REM Route the request to the correct batch file in ./batch_files
 
-IF "%1"=="" GOTO displayChosenPath
+SET srcDirName=batch_files
+SET chosenPathStoreFileName=chosen_file_path.txt
 
+IF "%1"=="" GOTO displayChosenPath
 
 IF /I "%1"=="/h" GOTO displayHelp 
 IF /I "%1"=="--help" GOTO displayHelp
@@ -17,21 +19,21 @@ IF /I "%1"=="--empty" GOTO clearChosenPath
 GOTO:eof
 
 :displayChosenPath
-CALL %~dp0/batch_files/display_chosen_file_path.bat
+CALL %~dp0/%srcDirName%/display_chosen_file_path.bat %chosenPathStoreFileName%
 GOTO:eof
 
 :displayHelp
-CALL %~dp0/batch_files/display_help.bat
+CALL %~dp0/%srcDirName%/display_help.bat
 GOTO:eof
 
 :setChosenPath
 IF NOT "%2"=="" (
-	CALL %~dp0/batch_files/set_chosen_file_path.bat %2
+	CALL %~dp0/%srcDirName%/set_chosen_file_path.bat %chosenPathStoreFileName% %2
 ) ELSE (
 	ECHO Please provide a filename
 )
 GOTO:eof
 
 :clearChosenPath
-CALL %~dp0/batch_files/delete_chosen_file_path.bat
+CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName%
 GOTO:eof

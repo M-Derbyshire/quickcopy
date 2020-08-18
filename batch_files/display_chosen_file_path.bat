@@ -1,4 +1,5 @@
-SET fileWithChosenPath=%~dp0chosen_file_path.txt
+SET chosenPathStoreFileName=%1
+SET fileWithChosenPath=%~dp0%chosenPathStoreFileName%
 IF EXIST %fileWithChosenPath% (
 	FOR /F %%a IN (%fileWithChosenPath%) DO (
 		ECHO The chosen file path to copy/move is: %%a

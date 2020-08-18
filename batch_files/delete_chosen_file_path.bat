@@ -1,4 +1,5 @@
-SET fileWithChosenPath=%~pd0chosen_file_path.txt
+SET chosenPathStoreFileName=%1
+SET fileWithChosenPath=%~pd0%chosenPathStoreFileName%
 IF EXIST %fileWithChosenPath% (
 	DEL %fileWithChosenPath% 
 	ECHO The chosen file has been cleared
