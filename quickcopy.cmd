@@ -16,6 +16,9 @@ IF /I "%1"=="--set" GOTO setChosenPath
 IF /I "%1"=="/e" GOTO clearChosenPath
 IF /I "%1"=="--empty" GOTO clearChosenPath
 
+IF /I "%1"=="/c" GOTO copyFile
+IF /I "%1"=="--copy" GOTO copyFile
+
 GOTO:eof
 
 :displayChosenPath
@@ -36,4 +39,12 @@ GOTO:eof
 
 :clearChosenPath
 CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName%
+GOTO:eof
+
+:copyFile
+IF NOT "%2"=="" (
+	CALL %~dp0/%srcDirName%/copy_chosen_file.bat %chosenPathStoreFileName% %2
+) ELSE (
+	ECHO Please provide a name for the new file
+)
 GOTO:eof
