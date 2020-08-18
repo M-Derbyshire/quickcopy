@@ -19,6 +19,7 @@ IF /I "%1"=="--empty" GOTO clearChosenPath
 IF /I "%1"=="/c" GOTO copyFile
 IF /I "%1"=="--copy" GOTO copyFile
 
+ECHO The given arguments are invalid. Please use --help to see the list of available options.
 GOTO:eof
 
 :displayChosenPath
