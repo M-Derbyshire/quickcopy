@@ -7,5 +7,5 @@ QuickCopy allows you to select a file from your current working directory, chang
 
 Use the help flag for full instructions: quickcopy --help
 
-[My Twitter: @mattdarbs](http://twitter.com/mattdarbs)
+[My Twitter: @mattdarbs](http://twitter.com/mattdarbs)  
 [My Portfolio](http://md-developer.uk)
