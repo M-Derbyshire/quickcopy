@@ -8,14 +8,14 @@ SET newFilePath=%cd%\%2
 IF EXIST %fileWithChosenPath% (
 	FOR /F %%a IN (%fileWithChosenPath%) DO (
 		IF EXIST %%a (
-			IF "%3"=="move" (
-				ECHO needs implementing
+			IF /I "%3"=="move" (
+				MOVE %%a %newFilePath%	
 			) ELSE (
 				COPY %%a %newFilePath%
 			)
 		) ELSE (
 			REM This is more informative than the default copy error
-			ECHO The file to be copied does not exist
+			ECHO The set file does not exist
 		)
 	)
 ) ELSE (

@@ -19,6 +19,9 @@ IF /I "%1"=="--empty" GOTO clearChosenPath
 IF /I "%1"=="/c" GOTO copyFile
 IF /I "%1"=="--copy" GOTO copyFile
 
+IF /I "%1"=="/m" GOTO moveFile
+IF /I "%1"=="--move" GOTO moveFile
+
 ECHO The given arguments are invalid. Please use --help to see the list of available options.
 GOTO:eof
 
@@ -49,3 +52,11 @@ IF NOT "%2"=="" (
 	ECHO Please provide a name for the new file
 )
 GOTO:eof
+
+:moveFile
+IF NOT "%2"=="" (
+	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %2 move
+	CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName%
+) ELSE (
+	ECHO Please provide a name for the new file
+)
