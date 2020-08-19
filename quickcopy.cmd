@@ -34,8 +34,11 @@ CALL %~dp0/%srcDirName%/display_help.bat
 GOTO:eof
 
 :setChosenPath
-IF NOT "%2"=="" (
-	CALL %~dp0/%srcDirName%/set_chosen_file_path.bat %chosenPathStoreFileName% %2
+REM Setting the chosen file like this, as it makes it easier to test it's empty
+REM (was having issues testing if empty when there were quotes in the name).
+SET chosenFileName=%2
+IF DEFINED chosenFileName (
+	CALL %~dp0/%srcDirName%/set_chosen_file_path.bat %chosenPathStoreFileName% %chosenFileName%
 ) ELSE (
 	ECHO Please provide a filename
 )
@@ -46,16 +49,18 @@ CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName%
 GOTO:eof
 
 :copyFile
-IF NOT "%2"=="" (
-	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %2
+SET newFileName=%2
+IF DEFINED newFileName (
+	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %newFileName%
 ) ELSE (
 	ECHO Please provide a name for the new file
 )
 GOTO:eof
 
 :moveFile
-IF NOT "%2"=="" (
-	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %2 move
+SET newFileName=%2
+IF DEFINED newFileName (
+	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %newFileName% move
 	CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName% silent
 ) ELSE (
 	ECHO Please provide a name for the new file

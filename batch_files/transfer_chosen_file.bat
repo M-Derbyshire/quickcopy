@@ -6,7 +6,7 @@ REM 3 - If the file should be moved, rather than copied, this should equal "move
 SET fileWithChosenPath=%~dp0%1
 SET newFilePath=%cd%\%2
 IF EXIST %fileWithChosenPath% (
-	FOR /F %%a IN (%fileWithChosenPath%) DO (
+	FOR /F "delims=" %%a IN (%fileWithChosenPath%) DO (
 		IF EXIST %%a (
 			IF /I "%3"=="move" (
 				MOVE %%a %newFilePath%	
