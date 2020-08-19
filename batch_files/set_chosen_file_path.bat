@@ -11,4 +11,4 @@ SET chosenFullPath=%cd%\%chosenFileName%
 
 REM Add quotes to the full path when saving, in case there's spaces
 ECHO ^"%chosenFullPath%^" > %~dp0/%chosenPathStoreFileName%
-ECHO File to copy/move is now %chosenFullPath%
+ECHO File to copy/move is now "%chosenFullPath%"
