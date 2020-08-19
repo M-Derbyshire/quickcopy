@@ -56,7 +56,8 @@ GOTO:eof
 :moveFile
 IF NOT "%2"=="" (
 	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %2 move
-	CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName%
+	CALL %~dp0/%srcDirName%/delete_chosen_file_path.bat %chosenPathStoreFileName% silent
 ) ELSE (
 	ECHO Please provide a name for the new file
 )
+GOTO:eof

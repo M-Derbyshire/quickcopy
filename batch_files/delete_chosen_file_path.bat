@@ -1,10 +1,12 @@
-REM Takes 1 argument: the name of the file to delete (not the full path)
+REM Takes 2 arguments:
+REM 1 - The name of the file to delete (not the full path)
+REM 2 - If this script shouldn't display any messages, then this should equal "silent"
 
 SET chosenPathStoreFileName=%1
 SET fileWithChosenPath=%~pd0%chosenPathStoreFileName%
 IF EXIST %fileWithChosenPath% (
 	DEL %fileWithChosenPath% 
-	ECHO The chosen file has been cleared
+	IF /I NOT "%2"=="silent" ECHO The chosen file has been cleared
 ) ELSE (
-	ECHO No file selected
+	IF /I NOT "%2"=="silent" ECHO No file selected
 )
