@@ -16,3 +16,5 @@ ECHO 3. To clear the chosen file: /e ^|^| --empty
 ECHO 4. Then navigate to the directory you wish to copy/move the file to
 ECHO 5. To copy the chosen file: /c ^<new filename^> ^|^| --copy ^<new filename^>
 ECHO 6. To move the chosen file: /m ^<new filename^> ^|^| --move ^<new filename^>
+ECHO(
+ECHO If you need to use a filename that contains spaces, then you will need to surround the filename with double quotation marks
