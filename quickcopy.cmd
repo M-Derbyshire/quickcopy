@@ -44,7 +44,7 @@ GOTO:eof
 
 :copyFile
 IF NOT "%2"=="" (
-	CALL %~dp0/%srcDirName%/copy_chosen_file.bat %chosenPathStoreFileName% %2
+	CALL %~dp0/%srcDirName%/transfer_chosen_file.bat %chosenPathStoreFileName% %2
 ) ELSE (
 	ECHO Please provide a name for the new file
 )
