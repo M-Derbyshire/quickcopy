@@ -9,9 +9,9 @@ IF EXIST %fileWithChosenPath% (
 	FOR /F "delims=" %%a IN (%fileWithChosenPath%) DO (
 		IF EXIST %%a (
 			IF /I "%3"=="move" (
-				MOVE %%a %newFilePath%	
+				MOVE %%a "%newFilePath%"	
 			) ELSE (
-				COPY %%a %newFilePath%
+				COPY %%a "%newFilePath%"
 			)
 		) ELSE (
 			REM This is more informative than the default copy error
